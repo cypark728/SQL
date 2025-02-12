@@ -331,13 +331,13 @@ FROM(
            FIRST_NAME,
            SALARY,
            DEPARTMENT_ID,
-           JOB_ID
+           (SELECT DEPARTMENT_NAME FROM DEPARTMENTS D WHERE A.DEPARTMENT_ID = D.DEPARTMENT_ID) AS 부서명
     FROM(
         SELECT *
         FROM EMPLOYEES
         WHERE JOB_ID LIKE 'SA_MAN'
         ORDER BY SALARY
-    )
+    )A
 );
 
 
