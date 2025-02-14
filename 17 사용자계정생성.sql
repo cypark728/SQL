@@ -16,13 +16,45 @@ GRANT CREATE SESSION, CREATE TABLE, CREATE VIEW, CREATE SEQUENCE, CREATE PROCEDU
 TO USER01;
 
 -- 테이블스페이스 - 테이블에 데이터가 저장되는 물리적인 공간
-
 ALTER USER USER01 DEFAULT TABLESPACE USERS QUOTA UNLIMITED ON USERS;
 
 -- 권한 회수 REVOKE ~ FROM
 REVOKE CREATE SESSION FROM USER01;
 -- 계정 삭제
 DROP USER USER01 CASCADE; --계정이 테이블과 데이터를 가지고 있으면, 테이블 포함해서 삭제가 일어납니다.
+
+--------------------------------------------------------------------------------
+--롤을 이용한 권한부여
+CREATE USER USER01 IDENTIFIED BY USER01;
+GRANT RESOURCE, CONNECT TO USER01; --리소스 롤(ROLE)(테이블, 뷰, 시퀀스, 프로시저 등의 권한의 그룹)
+ALTER USER USER01 DEFAULT TABLESPACE USERS QUOTA UNLIMITED ON USERS;
+DROP USER USER01;
+--------------------------------------------------------------------------------
+-- 계정 생성과, 권한 부여를 마우스로
+-- 보기탭 -> DBA 클릭 -> 관리자접속 -> 테이블스페이스 생성
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
